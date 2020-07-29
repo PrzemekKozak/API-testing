@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "SWAPI People TEST",
+			"name": "SWAPI Luke TEST",
 			"event": [
 				{
 					"listen": "test",
@@ -16,7 +16,7 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Body matches string\", function () {\r",
+							"pm.test(\"Name is Luke Skywalker\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Luke Skywalker\");\r",
 							"});\r",
 							"pm.test(\"Response time is less than 200ms\", function () {\r",
@@ -31,19 +31,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_URL}}people/1",
+					"raw": "{{base_URL}}people/1/",
 					"host": [
 						"{{base_URL}}people"
 					],
 					"path": [
-						"1"
+						"1",
+						""
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "SW films",
+			"name": "SW films TEST",
 			"event": [
 				{
 					"listen": "test",
@@ -54,7 +55,7 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"A New Hope\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"A New Hope\", \"The Empire Strikes Back\", \"Return of the Jedi\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -65,12 +66,71 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_URL}}films/1",
+					"raw": "{{base_URL}}films/",
 					"host": [
 						"{{base_URL}}films"
 					],
 					"path": [
-						"1"
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SWAPI vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}vehicles/",
+					"host": [
+						"{{base_URL}}vehicles"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SWAPI Millennium Falcon TEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a9a5980-abc0-4e18-bc0b-6b86cec3c02f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Name is: Millennium Falcon\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Millennium Falcon\");\r",
+							"});\r",
+							"pm.test(\"One of the pilots is Han Solo \", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"http://swapi.dev/api/people/14/\");\r",
+							";\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_URL}}starships/10/",
+					"host": [
+						"{{base_URL}}starships"
+					],
+					"path": [
+						"10",
+						""
 					]
 				}
 			},
