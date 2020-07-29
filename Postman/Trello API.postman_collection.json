@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "767ef36d-33d5-4925-85d4-9794b8f41284",
+		"name": "Trello API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List of Boards",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/1/members/me/boards?key={{key}}&token={{token}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"members",
+						"me",
+						"boards"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing board by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/1/boards/{{board_1_id}}?key={{key}}&token={{token}}&name=Plan nauki - tester manualny",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{board_1_id}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": "Plan nauki - tester manualny"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
